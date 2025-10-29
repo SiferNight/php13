@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Список заказов</h2>
+
+<table border="1">
+    <tr>
+        <th>ID заказа</th>
+        <th>Дата</th>
+        <th>Клиент</th>
+        <th>Email</th>
+        <th>Сумма заказа</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.createdAt|date('d.m.Y H:i') }}</td>
+        <td>{{ order.clientName }}</td>
+        <td>{{ order.clientEmail }}</td>
+        <td>{{ order.orderTotal }} руб.</td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="5">Нет заказов</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Средние суммы закзов</h2>
+
+<table border="2">
+    <tr>
+        <th>ID заказа</th>
+
+        <th>Клиент</th>
+        <th>Email</th>
+        <th>Cредняя сумма заказа</th>
+    </tr>
+    {% for order in avgOrders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.clientName }}</td>
+        <td>{{ order.clientEmail }}</td>
+        <td>{{ order.avgOrder }} руб.</td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="4">Нет заказов</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+
+</html>

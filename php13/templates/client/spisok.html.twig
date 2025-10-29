@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Все клиенты</h1>
+
+<p>Всего клиентов: {{ clients|length }}</p>
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Email</th>
+            <th>Количество заказов</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for client in clients %}
+        <tr>
+            <td>{{ client.id }}</td>
+            <td>{{ client.name }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.ordersCount }}</td>
+            <td>
+                {% if client.ordersCount > 5 %}
+                    Постоянный клиент
+                {% elseif client.ordersCount > 0 %}
+                    Разовый клиент
+                {% else %}
+                    Нет заказов
+                {% endif %}
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5" style="text-align: center;">Нет пользователей</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+
+</html>

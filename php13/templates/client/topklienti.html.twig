@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   
+<h2>Клиенты по потраченным деньгам</h2>
+
+<table border="1">
+    <tr>
+        <th>Место</th>
+        <th>Клиент</th>
+        <th>Email</th>
+        <th>Всего потрачено</th>
+    </tr>
+    {% for client in clients %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ client.name }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.totalSpent }} руб.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+</body>
+
+</html>
