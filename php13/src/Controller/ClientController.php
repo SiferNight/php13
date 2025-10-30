@@ -12,8 +12,8 @@ use Doctrine\ORM\EntityManagerInterface;
 
 final class ClientController extends AbstractController
 {
-    private $clientRepository;
-    private $entityManager;
+    private  ClientRepository $clientRepository;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(ClientRepository $clientRepository, EntityManagerInterface $entityManager)
     {

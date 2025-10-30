@@ -13,8 +13,8 @@ use Doctrine\ORM\EntityManagerInterface;
 
 final class BookController extends AbstractController
 {
-    private $bookRepository;
-    private $entityManager;
+    private BookRepository $bookRepository;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(BookRepository $bookRepository, EntityManagerInterface $entityManager)
     {

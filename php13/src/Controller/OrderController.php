@@ -13,8 +13,8 @@ use App\Repository\OrderRepository;
 
 final class OrderController extends AbstractController
 {
-    private $orderRepository;
-    private $entityManager;
+    private OrderRepository $orderRepository;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(OrderRepository $orderRepository, EntityManagerInterface $entityManager)
     {
